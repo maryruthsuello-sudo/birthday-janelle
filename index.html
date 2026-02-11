@@ -1,50 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Janelle!</title>
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css"> <!-- external CSS -->
-  <title>Happy Birthday Janelle!</title>
-
-  <!-- CSS goes here -->
   <style>
+    /* BODY */
     body {
       background-color: pink;
+      font-family: 'Pixelify Sans', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* allow vertical scroll on small screens */
+      padding: 20px;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* CONTAINER */
+    .container {
       text-align: center;
+      width: 100%;
+      max-width: 400px; /* safe for phones */
+      box-sizing: border-box;
+    }
+
+    /* HEADER */
+    h1 {
+      font-size: 6vw; /* responsive font */
+      margin-bottom: 20px;
       color: white;
-      font-family: 'Pixelify Sans'; /* default font for page */
     }
 
-    .img-btn {
-      position: relative;
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
-      margin-top: 30px;
+    /* PANEL */
+    .panel {
+      color: white;
+      padding: 20px;
+      border-radius: 20px;
+      width: 100%;
+      margin: 0 auto 20px auto;
     }
 
-    .img-btn img {
-      width: 150px;
+    .panel img {
+      width: 100%;       /* responsive */
+      max-width: 300px;  /* limits size on big screens */
       height: auto;
       display: block;
+      margin: 0 auto;
     }
 
-    .img-btn span {
-      position: absolute;
-      top: 45%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-      pointer-events: none;
-    }
+    /* IMAGE BUTTON */
+    .img-btn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.img-btn img {
+  width: 150px; /* fixed size */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.img-btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 1rem; /* reasonable fixed size */
+  pointer-events: none;
+  white-space: nowrap;
+  text-align: center;
+}
 
     .img-btn:hover {
       opacity: 0.85;
@@ -54,30 +94,52 @@
       transform: scale(0.95);
     }
 
+    /* OPTIONAL TYPING EFFECT */
+    #typing-text::after {
+      content: "|";
+      animation: blink 1s infinite;
+    }
 
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    /* MEDIA QUERY for very small phones */
+    @media (max-width: 320px) {
+      h1 {
+        font-size: 7vw;
+      }
+      .img-btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+  font-size: 1.2rem; /* reasonable size for desktop & mobile */
+  max-width: 90%;    /* prevent overflow */
+  white-space: nowrap;
+  text-align: center;
+}
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
-  <h1 style="font-size: 30px;">Happy 20th Birthday Janelle!</h1>
-  
-  <div class="panel">
-    <img src="Janelle_1.jpg" alt="Janelle's Picture" width="300">
-  </div>
+    <h1>Happy 20th Birthday Janelle!</h1>
 
-  <!-- Move the button inside the container -->
-  <div style="margin-top: 20px;">
+    <div class="panel">
+      <img src="Janelle_1.jpg" alt="Janelle's Picture">
+    </div>
+
     <button class="img-btn" onclick="location.href='page1.html'">
       <img src="pinkButton-removebg-preview.png" alt="">
       <span>Click Here</span>
     </button>
   </div>
-</div>
-
-  
 </body>
-
-  
-</body>
-
 </html>
