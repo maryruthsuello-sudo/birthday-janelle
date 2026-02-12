@@ -5,10 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Birthday Janelle</title>
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-
   <style>
     /* BODY */
     body {
@@ -17,67 +14,56 @@
       font-family: 'Pixelify Sans', sans-serif;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
     }
 
-    /* MAIN CONTAINER */
+    /* CONTAINER */
     .container {
       display: flex;
-      flex-wrap: wrap;          /* stack columns on small screens */
       justify-content: center;
-      max-width: 1200px;
+      align-items: flex-start;
       gap: 30px;
       padding: 50px 20px;
+      flex-wrap: wrap; /* allow columns to wrap on small screens */
     }
 
-    /* SCROLLABLE IMAGE COLUMNS */
-    .scroll-col {
+    /* COLUMNS */
+    .column {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      max-height: 80vh;
-      overflow-y: auto;
-      flex: 1 1 200px;  /* responsive width */
-      min-width: 150px;
+      gap: 20px;
+      flex: 1 1 150px; /* responsive shrinking */
+      max-width: 300px;
     }
 
-    .scroll-col img {
-      width: 100%;
+    .column img {
+      width: 100%;       /* responsive images */
       height: auto;
       border-radius: 10px;
       object-fit: cover;
-      display: block;
     }
 
     /* TEXT COLUMN */
     .text-column {
-      max-width: 500px;
-      flex: 1 1 300px;
+      max-width: 400px;
       text-align: center;
       font-size: 18px;
       line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 15px;
     }
 
     /* IMAGE BUTTON */
     .img-btn {
-      position: relative;
+      display: inline-block;
+      margin: 50px auto;
       background: none;
       border: none;
       cursor: pointer;
-      display: block;
-      margin: 30px auto 0 auto;
-      padding: 0;
+      position: relative;
     }
 
     .img-btn img {
-      width: 150px;
+      width: 80%;
+      max-width: 150px;
       height: auto;
-      display: block;
     }
 
     .img-btn span {
@@ -86,47 +72,56 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: white;
-      font-size: 16px;   /* fixed font size */
       font-weight: bold;
       pointer-events: none;
-      text-align: center;
+      font-size: 4vw; /* responsive text */
       white-space: nowrap;
     }
 
-    .img-btn:hover {
-      opacity: 0.85;
+    /* TYPING EFFECT (Optional) */
+    #typing-text::after {
+      content: "|";
+      animation: blink 1s infinite;
     }
 
-    .img-btn:active {
-      transform: scale(0.95);
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
-    /* Responsive for tablets and phones */
+    /* Responsive layout for tablets and phones */
     @media (max-width: 900px) {
       .container {
         flex-direction: column;
         align-items: center;
+        padding: 30px 10px;
+        gap: 30px;
       }
 
       .text-column {
         max-width: 90%;
         font-size: 16px;
+        line-height: 1.5;
       }
 
-      .scroll-col {
+      .column {
         max-width: 90%;
-        flex-direction: row;       /* horizontal scroll on small screens */
-        overflow-x: auto;
-        overflow-y: hidden;
-        gap: 10px;
-      }
-
-      .scroll-col img {
-        width: auto;
-        height: 120px;
-        flex: 0 0 auto;
       }
     }
+      .img-btn span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+  font-size: 1.2rem; /* reasonable size for desktop & mobile */
+  max-width: 90%;    /* prevent overflow */
+  white-space: nowrap;
+  text-align: center;
+}
 
     /* Extra small phones */
     @media (max-width: 480px) {
@@ -134,13 +129,8 @@
         font-size: 14px;
         line-height: 1.4;
       }
-
-      .img-btn img {
-        width: 120px;
-      }
-
       .img-btn span {
-        font-size: 14px;
+        font-size: 6vw;
       }
     }
   </style>
@@ -153,7 +143,7 @@
 
   <div class="container">
     <!-- Left column -->
-    <div class="scroll-col">
+    <div class="column">
       <img src="me&Janelle (1).jpg" alt="">
       <img src="me&Janelle (2).jpg" alt="">
       <img src="me&Janelle (3).jpg" alt="">
@@ -185,7 +175,7 @@
     </div>
 
     <!-- Right column -->
-    <div class="scroll-col">
+    <div class="column">
       <img src="me&Janelle (7).jpg" alt="">
       <img src="me&Janelle (8).jpg" alt="">
       <img src="me&Janelle (9).jpg" alt="">
@@ -214,4 +204,3 @@
   </div>
 </body>
 </html>
-
