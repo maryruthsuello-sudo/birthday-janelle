@@ -66,21 +66,22 @@ body {
 }
 
 /* Responsive layout for tablets and phones */
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .container {
-    flex-direction: column; /* stack everything */
+    flex-direction: column; /* stack columns vertically */
     align-items: center;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .column {
-    max-width: 100%;       /* allow full width */
+    padding: 30px 10px;
+    gap: 30px;
   }
 
   .text-column {
-    max-width: 100%;
-    font-size: 16px;       /* smaller text */
+    max-width: 90%;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .column {
+    max-width: 90%;
   }
 }
 
@@ -104,4 +105,3 @@ body {
     font-size: 1rem;
   }
 }
-
